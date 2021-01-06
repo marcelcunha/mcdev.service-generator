@@ -1,0 +1,24 @@
+{
+    "name": "mcdev/service-generator",
+    "description": "Geraçao de classes para service pattern e repository pattern",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcel Cunha",
+            "email": "marcel.cunha.mc@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "MCDev\\ServiceGenerator\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MCDev\\ServiceGenerator\\Providers\\ServiceGeneratorServiceProvider"
+            ]
+        }
+    }
+}

@@ -1,0 +1,64 @@
+<?php
+
+namespace App\Services;
+
+use App\Repositories\[[model]]Repository;
+
+class [[name]]
+{
+    protected $repository;
+
+    public function __construct([[model]]Repository $repository)
+    {
+        $this->repository = $repository;
+    }
+
+
+    public function index()
+    {
+        $table = new DataTableService;
+
+        return [
+            'title' => '',
+            'create' => route('[[model-lowercase]].create'),
+            'items' => $this->repository->list(10, true),
+            'fields' => $table
+                //->addField()
+                ->getFields(),
+            'actions' => $table->ordinaryActions('[[model-lowercase]]')
+                ->getActions()
+        ];
+    }
+
+    public function create()
+    {
+        return [];
+    }
+
+    public function store(array $data): Model
+    {
+        return $this->repository->create($data);
+    }
+
+    public function edit([[model]] $[[model-lowercase]])
+    {
+        return ['[[model-lowercase]]' => $[[model-lowercase]]];
+    }
+
+    public function show([[model]] $[[model-lowercase]])
+    {
+        return [
+            '[[model-lowercase]]' => $[[model-lowercase]],
+        ];
+    }
+
+    public function update([[model]] $[[model-lowercase]], array $data): bool
+    {
+        return $this->repository->update($[[model-lowercase]], $data);
+    }
+
+    public function destroy([[model]] $[[model-lowercase]])
+    {
+        $this->repository->delete($[[model-lowercase]]);
+    }
+}
