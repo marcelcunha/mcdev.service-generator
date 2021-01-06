@@ -8,7 +8,6 @@
             "email": "marcel.cunha.mc@gmail.com"
         }
     ],
-    "require": {},
     "autoload": {
         "psr-4": {
             "MCDev\\ServiceGenerator\\": "src/"
